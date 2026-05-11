@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arisawa</title>
+    <style>
+        :root {
+            --bg: #0D0C0A;
+            --surface: #151410;
+            --surface2: #1D1B16;
+            --hiro: #C8962C;
+            --arisu: #3ABEDE;
+            --text: #F2EFE8;
+            --text-muted: #9A9488;
+            --border: rgba(200, 150, 44, 0.18);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            padding: 56px 24px 80px;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .site-title {
+            font-size: clamp(3.2rem, 12vw, 6rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            background: linear-gradient(130deg, var(--hiro) 20%, var(--arisu) 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 14px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 48px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--hiro), var(--arisu));
+            border-radius: 1px;
+            margin: 18px auto 0;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 26px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(200,150,44,0.07), rgba(58,190,222,0.07));
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(200, 150, 44, 0.45);
+            box-shadow: 0 12px 40px rgba(200, 150, 44, 0.12);
+        }
+
+        .card:hover::after { opacity: 1; }
+
+        .card-icon {
+            font-size: 30px;
+            line-height: 1;
+        }
+
+        .card-title {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .card-url {
+            font-size: 11px;
+            color: var(--arisu);
+            opacity: 0.6;
+            margin-top: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 72px;
+            font-size: 12px;
+            color: var(--text-muted);
+            opacity: 0.35;
+            letter-spacing: 0.06em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="site-title">arisawa</div>
+            <div class="subtitle">tools &amp; projects by alonzojp</div>
+            <div class="divider"></div>
+        </header>
+
+        <div class="grid">
+            <a class="card" href="https://alonzojp.github.io/playlist-randomizer/" target="_blank" rel="noopener">
+                <div class="card-icon">🎵</div>
+                <div class="card-title">Playlist Randomizer</div>
+                <div class="card-desc">Shuffle any YouTube playlist and play it as a browser music player.</div>
+                <div class="card-url">alonzojp.github.io/playlist-randomizer</div>
+            </a>
+
+            <a class="card" href="https://alonzojp.github.io/japanese-translator/" target="_blank" rel="noopener">
+                <div class="card-icon">🈳</div>
+                <div class="card-title">Japanese Translator</div>
+                <div class="card-desc">Japanese translation tool powered by Claude AI.</div>
+                <div class="card-url">alonzojp.github.io/japanese-translator</div>
+            </a>
+        </div>
+
+        <footer>arisawa</footer>
+    </div>
+</body>
+</html>
